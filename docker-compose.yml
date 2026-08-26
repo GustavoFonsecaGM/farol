@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17
+    container_name: farol-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: farol
+      POSTGRES_PASSWORD: farol_dev
+      POSTGRES_DB: farol
+    ports:
+      - "5432:5432"
+    volumes:
+      - farol-data:/var/lib/postgresql/data
+
+volumes:
+  farol-data:

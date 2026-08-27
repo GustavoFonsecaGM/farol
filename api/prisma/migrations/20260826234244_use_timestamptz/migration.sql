@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE "jobs" ALTER COLUMN "published_at" SET DATA TYPE TIMESTAMPTZ(3),
+ALTER COLUMN "created_at" SET DATA TYPE TIMESTAMPTZ(3);
+
+-- AlterTable
+ALTER TABLE "sources" ALTER COLUMN "created_at" SET DATA TYPE TIMESTAMPTZ(3);

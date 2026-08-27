@@ -20,16 +20,17 @@
     "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.6",
-    "prisma": "^7.9.1",
+    "prisma": "^6.19.3",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.65.0"
   },
   "dependencies": {
-    "@prisma/client": "^7.9.1",
+    "@prisma/client": "^6.19.3",
     "fastify": "^5.11.3"
   },
   "allowScripts": {
-    "@prisma/engines@7.9.1": true,
-    "prisma@7.9.1": true
+    "@prisma/engines@6.19.3": true,
+    "prisma@6.19.3": true,
+    "@prisma/client@6.19.3": true
   }
 }

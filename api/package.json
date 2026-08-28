@@ -4,7 +4,7 @@
   "type": "module",
   "description": "",
   "scripts": {
-    "dev": "node --watch src/index.ts",
+    "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
     "typecheck": "tsc --noEmit",
@@ -22,16 +22,19 @@
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.6",
     "prisma": "^6.19.3",
+    "tsx": "^4.23.12",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.65.0"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "fastify": "^5.11.3"
+    "fastify": "^5.11.3",
+    "zod": "^4.4.3"
   },
   "allowScripts": {
     "@prisma/engines@6.19.3": true,
     "prisma@6.19.3": true,
-    "@prisma/client@6.19.3": true
+    "@prisma/client@6.19.3": true,
+    "esbuild@0.28.2": true
   }
 }

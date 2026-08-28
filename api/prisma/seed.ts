@@ -28,7 +28,7 @@ await prisma.job.createMany({
   {
     title: 'fullstack developer',
     company: 'teste',
-    url: 'https://teste.com/vaga/3',
+    url: 'https://teste,com/vaga/3',
     sourceId: fonte.id,
   }
 ],

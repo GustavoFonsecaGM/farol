@@ -7,7 +7,7 @@ export async function listJobs(page: number, limit: number) {
   return jobs.map((job) => ({
     id: job.id,
     title: job.title,
-    company: job.company,
+    company: job.empresa,
     location: job.location,
     url: job.url,
     publishedAt: job.publishedAt,

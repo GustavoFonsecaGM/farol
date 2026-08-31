@@ -14,11 +14,13 @@ datasource db {
 
 
 model Source {
-  id        Int      @id @default(autoincrement())
-  name      String
-  baseUrl   String   @map("base_url")
-  active    Boolean  @default(true)
-  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  id           Int       @id @default(autoincrement())
+  slug         String    @unique
+  name         String
+  baseUrl      String    @map("base_url")
+  active       Boolean   @default(true)
+  lastSyncedAt DateTime? @map("last_synced_at") @db.Timestamptz(3)
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
 
   jobs Job[]
 
@@ -27,15 +29,23 @@ model Source {
 
 model Job {
   id          Int       @id @default(autoincrement())
+  externalId  String    @map("external_id")
   title       String
-  company     String
+  company     String?
   location    String?
+  description String?
   url         String
+  remote      Boolean?
+  fingerprint String    @unique
+  raw         Json
   publishedAt DateTime? @map("published_at") @db.Timestamptz(3)
   createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
   sourceId    Int       @map("source_id")
 
   source Source @relation(fields: [sourceId], references: [id])
 
+  @@unique([sourceId, externalId])
+  @@index([publishedAt(sort: Desc)])
   @@map("jobs")
 }
